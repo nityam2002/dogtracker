@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Track Record</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.js"></script>
+    
+
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <center>
+        <h3>My dog footprints</h3>
+    </center>
+
+    <div id="map"></div>
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+        defer></script>
+
+    <script>
+    
+        function initMap() {
+            
+            let x = 23.0377;
+            let y = 72.5543;
+            const uluru = { lat: x, lng: y };
+            
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 16,
+                center: uluru,
+            });
+            
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+
+        window.initMap = initMap;
+    </script>
+
+</body>
+
+</html>

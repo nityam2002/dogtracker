@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Track Record</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase.js"></script>
+</head>
+
+<body>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDxNDfUpcGMKWdVBDu9hC-TomKLWkkpIZo",
+            authDomain: "gps-js-app.firebaseapp.com",
+            databaseURL: "https://gps-js-app-default-rtdb.firebaseio.com",
+            projectId: "gps-js-app",
+            storageBucket: "gps-js-app.appspot.com",
+            messagingSenderId: "641865054160",
+            appId: "1:641865054160:web:23477e9f2840100849abd5",
+            measurementId: "G-H7MZRC8DD0"
+        };
+        var a;
+        var b;
+        firebase.initializeApp(firebaseConfig);
+
+        var rootRef = firebase.database().ref();
+
+        var ref = rootRef.child('time');
+        var refreq = ref.child('T1')
+
+        refreq.on('value', function (snap) {
+
+            snap.forEach(function (child) {
+                let a = snap.val().Lat;
+                let b = snap.val().Long;
+            });
+        });
+    </script>
+</body>
+
+</html>
